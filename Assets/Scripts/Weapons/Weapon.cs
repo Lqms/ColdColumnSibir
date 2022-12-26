@@ -16,6 +16,8 @@ public class Weapon : MonoBehaviour
     private WaitForSeconds _fireRateDelay;
     private WaitForSeconds _reloadingTime;
 
+    public WeaponData Data => _data;
+
     public event UnityAction<int, int> BulletsChanged;
 
     private const int SecondsInMinute = 60;
@@ -49,7 +51,6 @@ public class Weapon : MonoBehaviour
 
     public void TryShoot(Vector2 lookDirection)
     {
-        print("shoot");
         if (!_canShoot || _isReloading)
             return;
 
