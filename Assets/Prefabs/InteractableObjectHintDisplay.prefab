@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d74d9bceccec945b924544eafdaff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _message: 
   _canvas: {fileID: 1716850759891849185}
+  _text: {fileID: 1716850759405481884}
 --- !u!1 &1716850759405481874
 GameObject:
   m_ObjectHideFlags: 0

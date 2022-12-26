@@ -49,6 +49,7 @@ public class Weapon : MonoBehaviour
 
     public void TryShoot(Vector2 lookDirection)
     {
+        print("shoot");
         if (!_canShoot || _isReloading)
             return;
 

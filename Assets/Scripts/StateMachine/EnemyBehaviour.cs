@@ -8,6 +8,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private Player _player;
+    [SerializeField] private Weapon _weapon;
 
     private void Start()
     {
@@ -41,11 +42,8 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (hit.collider != null && hit.collider.TryGetComponent(out Player player))
         {
-            print("вижу игрока");
-        }
-        else
-        {
-            print("Не вижу!");
+            print("player detected");
+            _weapon.TryShoot(_player.transform.position - transform.position);
         }
     }
 }
