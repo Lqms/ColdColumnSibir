@@ -9,15 +9,28 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private Weapon _weapon;
     [SerializeField] private Transform[] _points;
-
-    private Vector3 _currentTarget;
+    [SerializeField] private Player _player;
 
     private void Start()
     {
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
 
-        StartCoroutine(Patroling());
+        // StartCoroutine(Patroling());
+    }
+
+    private void Update()
+    {
+        if (CheckShootingPossibility())
+        {
+            _weapon.TryShoot(_player.transform.position - transform.position);
+            LookToTarget(_player.transform.position);
+        }
+        else
+        {
+            FollowTarget(_player.transform);
+            LookToTarget(_player.transform.position);
+        }
     }
 
     private IEnumerator Patroling()
